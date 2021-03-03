@@ -1,0 +1,46 @@
+# https://wiki.archlinux.org/index.php/zsh#Simple_.zshrc
+autoload -Uz compinit promptinit
+compinit -u
+promptinit
+
+zstyle ':completion:*' menu  select
+prompt adam2
+
+set -o histignore{space,alldups}
+
+# https://wiki.archlinux.org/index.php/zsh#Fish-like_syntax_highlighting_and_autosuggestions
+source ~/.config/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/.config/zsh/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+# Always starting with insert mode for each command line
+ZVM_LINE_INIT_MODE=$ZVM_MODE_NORMAL
+
+alias yay="paru"
+alias g='git'
+alias l='ls -AGFS'
+
+# >>> mamba initialize >>>
+# !! Contents within this block are managed by 'mamba init' !!
+export MAMBA_EXE=~/bin/micromamba;
+export MAMBA_ROOT_PREFIX=~/micromamba;
+__mamba_setup="$($MAMBA_EXE shell hook --shell zsh --prefix $MAMBA_ROOT_PREFIX 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__mamba_setup"
+else
+    if [ -f $MAMBA_ROOT_PREFIX/etc/profile.d/mamba.sh ]; then
+        . $MAMBA_ROOT_PREFIX/etc/profile.d/mamba.sh
+    else
+        export PATH=$MAMBA_ROOT_PREFIX/bin:$PATH
+    fi
+fi
+unset __mamba_setup
+# <<< mamba initialize <<<
+micromamba activate
+
+# Created by `pipx`
+export PATH=$PATH:~/.local/bin
+autoload -U bashcompinit
+bashcompinit
+eval "$(register-python-argcomplete pipx)"
+eval "$(pandoc --bash-completion)"
+
+eval "$(luarocks path --bin)"

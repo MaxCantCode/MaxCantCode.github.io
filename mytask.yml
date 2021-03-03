@@ -1,0 +1,6 @@
+---
+- name: My task
+  hosts: localhost
+  tasks:
+     - name: Leaving a mark
+       command: "echo pass"

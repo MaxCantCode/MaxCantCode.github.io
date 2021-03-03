@@ -1,0 +1,28 @@
+ # < ~/.config/zsh/zsh_history.base > ~/.zsh_history
+ zero run-scripts
+ zero apply-symlinks
+ vi "+cd $HOME/vc"
+ vise "+cd $HOME/vc"
+ cd ~/.dotfiles/symlinks/foo
+
+ pax -rwlq scimax ~/.emacs.d
+ git checkout -dq origin/HEAD
+ git rebase -i --root
+ git ls-files -om --directory
+ sftp -P 2207
+
+ cd ~/vc/projects/thesis/singular-poisson
+ caffeinate docker run --privileged -it --rm -v $(pwd):/root quay.io/singularity/singularity:v3.7.3-slim build root/FEniCS-pandas.{sif,def}
+ caffeinate docker exec -it singular-poisson_singularity_1 singularity build FEniCS-pandas.{sif,def}
+ caffeinate docker exec -it singular-poisson_singularity_1 singularity build FEniCS-dev-base.sif docker://quay.io/fenicsproject/dev
+ 
+ docker compose down && docker compose up -d
+ docker exec -it singular-poisson_singularity_1 singularity exec FEniCS-pandas.sif
+ docker exec -it singular-poisson_singularity_1 ./FEniCS-pandas.sif
+ docker exec -it singular-poisson_singularity_1 singularity run --writable-tmpfs FEniCS-pandas.sif su - fenics
+ docker exec -it singular-poisson_singularity_1 singularity exec FEniCS-pandas.sif mpirun -n 4 -profile python3 -B /home/fenics/demo/python/documented/singular-poisson/demo_singular-poisson.py
+
+ emacs --with-profile doom
+ emacs --with-profile scimax
+ emacs --with-profile spacemacs
+

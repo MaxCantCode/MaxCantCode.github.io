@@ -1,0 +1,28 @@
+[submodule "zero"]
+	path = zero
+	url = https://github.com/zero-sh/zero.sh
+[submodule "symlinks/foo/.config/piu"]
+	path = symlinks/foo/.config/piu
+	url = https://github.com/keithieopia/piu
+[submodule "symlinks/foo/.config/chemacs/scimax"]
+	path = symlinks/foo/.config/chemacs/scimax
+	url = https://github.com/jkitchin/scimax
+	ignore = all
+[submodule "symlinks/foo/.config/nvim"]
+	path = symlinks/foo/.config/nvim
+	url = https://github.com/MaxCan-Code/minimal_vim
+[submodule "symlinks/foo/.config/chemacs/emacs-for-vimmers"]
+	path = symlinks/foo/.config/chemacs/emacs-for-vimmers
+	url = https://github.com/MaxCan-Code/emacs-for-vimmers
+	ignore = all
+[submodule "symlinks/foo/.config/emacs"]
+	path = symlinks/foo/.config/emacs
+	url = https://github.com/plexus/chemacs2
+[submodule "symlinks/foo/.config/zsh/zsh-vi-mode"]
+	path = symlinks/foo/.config/zsh/zsh-vi-mode
+	url = https://github.com/jeffreytse/zsh-vi-mode
+	ignore = all
+[submodule "symlinks/foo/.config/zsh/zsh-syntax-highlighting"]
+	path = symlinks/foo/.config/zsh/zsh-syntax-highlighting
+	url = https://github.com/zsh-users/zsh-syntax-highlighting
+	ignore = all

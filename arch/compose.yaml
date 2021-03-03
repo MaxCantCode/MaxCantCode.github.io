@@ -1,0 +1,11 @@
+services:
+  arch:
+    build: .
+    ports:
+      - 8888:8888
+      - 8998:8998
+    stdin_open: true
+    tty: true
+    # volumes:
+      # - ../..:/home/jovyan/notebooks
+

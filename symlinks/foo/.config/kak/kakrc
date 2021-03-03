@@ -1,0 +1,3 @@
+set -add global autoinfo normal
+addhl global/ number-lines -relative -hlcursor
+addhl global/ show-matching
